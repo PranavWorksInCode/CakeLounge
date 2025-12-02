@@ -1,0 +1,1 @@
+dont implement the cart and payment feature lets work on completing all the pages first then we will go forward with setting up payment methods. For now on cakes.html can we have such that when we click on the sizes of the cake the box expands
