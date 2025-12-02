@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cake Lounge | Premium Cakes & Events</title>
-    <meta name="description"
-        content="Artisan cakes for daily treats and special events. Order online or book a consultation for your wedding or party.">
+    <title>Dry Cakes - Sizes & Weights | Cake Lounge</title>
+    <meta name="description" content="Choose the perfect dry cake size for your event. Available in 1lb, 2lb, and 3lb.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,9 +17,9 @@
 <body>
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Cake Lounge</a>
+            <a href="index.html" class="logo">Cake Lounge</a>
             <div class="nav-links desktop-only">
-                <a href="#home">Home</a>
+                <a href="index.html#home">Home</a>
                 <div class="dropdown">
                     <a href="#" class="dropdown-btn">Our Products</a>
                     <div class="dropdown-content">
@@ -35,8 +34,8 @@
                         <a href="bite-size-sweets.html">Bite Size Sweets</a>
                     </div>
                 </div>
-                <a href="#events">Events</a>
-                <a href="#contact" class="btn-primary">Order Now</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact" class="btn-primary">Order Now</a>
             </div>
             <button class="mobile-menu-btn">
                 <span></span>
@@ -46,76 +45,43 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content fade-in-left">
-                <h1>Life is Sweet.<br>Enjoy a Slice.</h1>
-                <p>Handcrafted cakes, pastries, and desserts made with love and the finest ingredients.</p>
-                <div class="hero-btns">
-                    <a href="products.html" class="btn-primary">View Menu</a>
-                    <a href="#contact" class="btn-secondary">Book Consultation</a>
-                </div>
-            </div>
-            <div class="hero-image fade-in-right">
-                <img src="assets/images/hero.png" alt="Delicious layered cake with berries">
-            </div>
-        </div>
-    </section>
-
-    <section id="our_products" class="section bg-cream">
+    <section class="section bg-cream" style="padding-top: 120px;">
         <div class="container">
             <div class="section-header text-center">
                 <span class="subtitle">Our Menu</span>
-                <h2>Daily Fresh Bakes</h2>
-                <p>Freshly baked every morning. Stop by or order for pickup.</p>
+                <h2>Dry Cakes</h2>
+                <p>Select the perfect size for your celebration.</p>
             </div>
-            <div class="split-layout">
-                <div class="split-image fade-in-left">
-                    <img src="assets/images/cupcakes.png" alt="Box of gourmet pastel cupcakes">
-                </div>
-                <div class="split-content fade-in-right">
-                    <h3>Cupcakes & Pastries</h3>
-                    <p>Our display case is filled daily with a rotating selection of gourmet cupcakes, macarons, and
-                        artisan pastries. Perfect for a midday treat or a gift for someone special.</p>
-                    <ul class="feature-list">
-                        <li>Cakes</li>
-                        <li>Special Cakes</li>
-                        <li>Cake Dessert Cups</li>
-                        <li>Cupcakes</li>
-                        <li>Pastries</li>
-                        <li>Cookies</li>
-                        <li>Bite Size Sweets</li>
-                    </ul>
-                    <a href="#contact" class="btn-text">Order for Pickup &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="events" class="section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="subtitle">Custom Creations</span>
-                <h2>For Your Special Moments</h2>
-                <p>Weddings, birthdays, and corporate gatherings deserve a centerpiece that tastes as good as it
-                    looks.
-                </p>
-            </div>
-            <div class="split-layout reverse">
-                <div class="split-image fade-in-right">
-                    <img src="assets/images/wedding.png" alt="Elegant tiered wedding cake">
+            <div class="product-grid">
+                <!-- 1lb -->
+                <div class="product-card fade-in">
+                    <div class="product-image-placeholder"></div>
+                    <div class="product-info">
+                        <h3>1 lb</h3>
+                        <p>Standard Size</p>
+                        <span class="price">Perfect for small families</span>
+                    </div>
                 </div>
-                <div class="split-content fade-in-left">
-                    <h3>Weddings & Events</h3>
-                    <p>We work closely with you to design a custom cake that matches your theme and flavor
-                        preferences.
-                        From elegant tiered cakes to modern artistic designs.</p>
-                    <ul class="feature-list">
-                        <li>Complimentary Tastings</li>
-                        <li>Custom Design Consultation</li>
-                        <li>Delivery & Setup</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Book Consultation</a>
+
+                <!-- 2lb -->
+                <div class="product-card fade-in delay-1">
+                    <div class="product-image-placeholder"></div>
+                    <div class="product-info">
+                        <h3>2 lb</h3>
+                        <p>Medium Size</p>
+                        <span class="price">Great for gatherings</span>
+                    </div>
+                </div>
+
+                <!-- 3lb -->
+                <div class="product-card fade-in">
+                    <div class="product-image-placeholder"></div>
+                    <div class="product-info">
+                        <h3>3 lb</h3>
+                        <p>Large Size</p>
+                        <span class="price">Ideal for parties</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,22 +134,11 @@
     <div id="sidebar" class="sidebar">
         <button id="close-sidebar" class="close-btn">&times;</button>
         <ul class="sidebar-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#our_products">Our Products</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="#">Our Products</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
         </ul>
-    </div>
-
-    <!-- Menu Modal -->
-    <div id="menu-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-title">Product Name</h2>
-            <p class="modal-description">Freshly baked with premium ingredients. Perfect for any occasion.</p>
-            <p id="modal-price" class="modal-price">$0.00</p>
-            <a href="#contact" class="btn-primary">Order This Item</a>
-        </div>
     </div>
 
     <script src="script.js"></script>

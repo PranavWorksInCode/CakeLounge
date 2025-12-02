@@ -94,32 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Shopping Cart Logic ---
 
-    // 1. Inject Cart Sidebar HTML
-    const cartSidebarHTML = `
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Your Cart</h3>
-            <button id="close-cart" class="close-cart">&times;</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <!-- Items go here -->
-            <p style="text-align:center; margin-top:20px;">Your cart is empty.</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total-amount">$0.00</span>
-            </div>
-            <a href="cart.html" class="btn-secondary full-width" style="text-align:center; display:block; margin-bottom: 10px;">View Cart</a>
-            <a href="checkout.html" class="btn-primary full-width" style="text-align:center; display:block;">Checkout</a>
-        </div>
-    </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', cartSidebarHTML);
-
-    // 2. Inject Cart Icon into Navbar
+    // 1. Inject Cart Icon into Navbar (Sidebar injection removed)
     const navLinks = document.querySelector('.nav-links');
-    if (navLinks) {
+    if (navLinks && !document.getElementById('cart-btn')) {
         const cartIconHTML = `
         <div class="cart-icon-container" id="cart-btn">
             <svg class="cart-icon" viewBox="0 0 24 24">
@@ -134,11 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. State Management
     let cart = JSON.parse(localStorage.getItem('bakeryCart')) || [];
 
-    const cartSidebar = document.getElementById('cart-sidebar');
     const cartBtn = document.getElementById('cart-btn');
-    const closeCartBtn = document.getElementById('close-cart');
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalEl = document.getElementById('cart-total-amount');
     const cartCountEl = document.getElementById('cart-count');
 
     function saveCart() {
@@ -154,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cart.push({ name, price, quantity: 1 });
         }
         saveCart();
+        alert(`${name} added to cart!`); // Simple feedback
     }
 
     window.removeFromCart = function (name) {
@@ -174,51 +148,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function renderCart() {
-        if (!cartItemsContainer) return;
-
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
+        // Only update the badge count
         let count = 0;
-
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="text-align:center; margin-top:20px;">Your cart is empty.</p>';
-        } else {
-            cart.forEach(item => {
-                total += item.price * item.quantity;
-                count += item.quantity;
-
-                const itemEl = document.createElement('div');
-                itemEl.className = 'cart-item';
-                itemEl.innerHTML = `
-                    <div class="cart-item-details">
-                        <span class="cart-item-title">${item.name}</span>
-                        <span class="cart-item-price">$${item.price.toFixed(2)}</span>
-                        <div class="cart-item-controls">
-                            <button class="qty-btn" onclick="updateQuantity('${item.name}', -1)">-</button>
-                            <span class="qty-display">${item.quantity}</span>
-                            <button class="qty-btn" onclick="updateQuantity('${item.name}', 1)">+</button>
-                            <span class="remove-item" onclick="removeFromCart('${item.name}')">Remove</span>
-                        </div>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(itemEl);
-            });
-        }
-
-        if (cartTotalEl) cartTotalEl.textContent = `$${total.toFixed(2)}`;
+        cart.forEach(item => count += item.quantity);
         if (cartCountEl) cartCountEl.textContent = count;
     }
 
     function openCart() {
-        if (cartSidebar) cartSidebar.classList.add('active');
-    }
-
-    function closeCart() {
-        if (cartSidebar) cartSidebar.classList.remove('active');
+        window.location.href = 'cart.html';
     }
 
     if (cartBtn) cartBtn.addEventListener('click', openCart);
-    if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
 
     // Initial Render
     renderCart();
@@ -346,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             e.stopPropagation();
             addToCart(title, price);
-            openCart();
+            // openCart(); // Removed as per user request
         });
     });
 });
