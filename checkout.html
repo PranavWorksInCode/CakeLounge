@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Cake Lounge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cake Lounge</a>
+            <div class="nav-links desktop-only">
+                <a href="index.html#home">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="cakes.html">Cakes</a>
+                        <a href="special-cakes.html">Special Cakes</a>
+                        <a href="drycakes.html">Dry Cakes</a>
+                        <a href="cupcakes.html">Cupcakes</a>
+                        <a href="cake-dessert-cups.html">Cake Dessert Cups</a>
+                        <a href="tiramisu.html">Tiramisu</a>
+                        <a href="cheese-cake.html">Cheese Cake</a>
+                        <a href="mousse-cake.html">Mousse Cake</a>
+                        <a href="bite-size-sweets.html">Bite Size Sweets</a>
+                    </div>
+                </div>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact" class="btn-primary">Order Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section bg-cream" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Checkout</h2>
+                <p>Complete your order</p>
+            </div>
+
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <h3>Billing Details</h3>
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Zip Code</label>
+                                <input type="text" id="zip" required>
+                            </div>
+                        </div>
+
+                        <h3>Payment Information</h3>
+                        <div class="form-group">
+                            <label for="card">Card Number</label>
+                            <input type="text" id="card" placeholder="0000 0000 0000 0000" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary full-width">Place Order</button>
+                    </form>
+                </div>
+
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items">
+                        <!-- Items will be populated by JS -->
+                    </div>
+                    <div class="checkout-total">
+                        <span>Total</span>
+                        <span id="checkout-total-amount">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Cake Lounge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

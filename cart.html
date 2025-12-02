@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | Cake Lounge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cake Lounge</a>
+            <div class="nav-links desktop-only">
+                <a href="index.html#home">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="cakes.html">Cakes</a>
+                        <a href="special-cakes.html">Special Cakes</a>
+                        <a href="drycakes.html">Dry Cakes</a>
+                        <a href="cupcakes.html">Cupcakes</a>
+                        <a href="cake-dessert-cups.html">Cake Dessert Cups</a>
+                        <a href="tiramisu.html">Tiramisu</a>
+                        <a href="cheese-cake.html">Cheese Cake</a>
+                        <a href="mousse-cake.html">Mousse Cake</a>
+                        <a href="bite-size-sweets.html">Bite Size Sweets</a>
+                    </div>
+                </div>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact" class="btn-primary">Order Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section bg-cream" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Your Cart</h2>
+                <p>Review your items before checkout</p>
+            </div>
+
+            <div class="cart-page-container"
+                style="max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <div id="full-cart-items">
+                    <!-- Items will be populated by JS -->
+                </div>
+
+                <div class="cart-page-footer"
+                    style="margin-top: 30px; border-top: 2px solid #eee; padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div class="cart-total" style="font-size: 1.5rem; font-weight: bold;">
+                        <span>Total:</span>
+                        <span id="full-cart-total">$0.00</span>
+                    </div>
+                    <div class="cart-actions">
+                        <a href="index.html" class="btn-secondary">Continue Shopping</a>
+                        <a href="checkout.html" class="btn-primary">Proceed to Checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Cake Lounge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

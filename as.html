@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Lounge | Premium Cakes & Events</title>
+    <meta name="description"
+        content="Artisan cakes for daily treats and special events. Order online or book a consultation for your wedding or party.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">Cake Lounge</a>
+            <div class="nav-links desktop-only">
+                <a href="#home">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="cakes.html">Cakes</a>
+                        <a href="special-cakes.html">Special Cakes</a>
+                        <a href="drycakes.html">Dry Cakes</a>
+                        <a href="cupcakes.html">Cupcakes</a>
+                        <a href="cake-dessert-cups.html">Cake Dessert Cups</a>
+                        <a href="tiramisu.html">Tiramisu</a>
+                        <a href="cheese-cake.html">Cheese Cake</a>
+                        <a href="mousse-cake.html">Mousse Cake</a>
+                        <a href="bite-size-sweets.html">Bite Size Sweets</a>
+                    </div>
+                </div>
+                <a href="#events">Events</a>
+                <a href="#contact" class="btn-primary">Order Now</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content fade-in-left">
+                <h1>Life is Sweet.<br>Enjoy a Slice.</h1>
+                <p>Handcrafted cakes, pastries, and desserts made with love and the finest ingredients.</p>
+                <div class="hero-btns">
+                    <a href="products.html" class="btn-primary">View Menu</a>
+                    <a href="#contact" class="btn-secondary">Book Consultation</a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-right">
+                <img src="assets/images/hero.png" alt="Delicious layered cake with berries">
+            </div>
+        </div>
+    </section>
+
+    <section id="our_products" class="section bg-cream">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="subtitle">Our Menu</span>
+                <h2>Daily Fresh Bakes</h2>
+                <p>Freshly baked every morning. Stop by or order for pickup.</p>
+            </div>
+            <div class="split-layout">
+                <div class="split-image fade-in-left">
+                    <img src="assets/images/cupcakes.png" alt="Box of gourmet pastel cupcakes">
+                </div>
+                <div class="split-content fade-in-right">
+                    <h3>Cupcakes & Pastries</h3>
+                    <p>Our display case is filled daily with a rotating selection of gourmet cupcakes, macarons, and
+                        artisan pastries. Perfect for a midday treat or a gift for someone special.</p>
+                    <ul class="feature-list">
+                        <li>Cakes</li>
+                        <li>Special Cakes</li>
+                        <li>Cake Dessert Cups</li>
+                        <li>Cupcakes</li>
+                        <li>Pastries</li>
+                        <li>Cookies</li>
+                        <li>Bite Size Sweets</li>
+                    </ul>
+                    <a href="#contact" class="btn-text">Order for Pickup &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="subtitle">Custom Creations</span>
+                <h2>For Your Special Moments</h2>
+                <p>Weddings, birthdays, and corporate gatherings deserve a centerpiece that tastes as good as it
+                    looks.
+                </p>
+            </div>
+            <div class="split-layout reverse">
+                <div class="split-image fade-in-right">
+                    <img src="assets/images/wedding.png" alt="Elegant tiered wedding cake">
+                </div>
+                <div class="split-content fade-in-left">
+                    <h3>Weddings & Events</h3>
+                    <p>We work closely with you to design a custom cake that matches your theme and flavor
+                        preferences.
+                        From elegant tiered cakes to modern artistic designs.</p>
+                    <ul class="feature-list">
+                        <li>Complimentary Tastings</li>
+                        <li>Custom Design Consultation</li>
+                        <li>Delivery & Setup</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Book Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-dark text-light">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Visit Us</h2>
+                <p>1472 Evans Blvd<br>London, ON N6M 0A8</p>
+                <p><strong>Hours:</strong><br>Mon-Sun: 8am - 1am<br></p>
+                <p><strong>Phone:</strong><br>+1 647-864-3713</p>
+            </div>
+            <div class="contact-form-wrapper">
+                <h3>Start Your Order</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">I'm interested in...</label>
+                        <select id="type">
+                            <option value="daily">Daily Treats (Pickup)</option>
+                            <option value="wedding">Wedding Cake</option>
+                            <option value="birthday">Birthday/Event Cake</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date Needed</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Details</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Cake Lounge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button id="close-sidebar" class="close-btn">&times;</button>
+        <ul class="sidebar-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#our_products">Our Products</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Menu Modal -->
+    <div id="menu-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Product Name</h2>
+            <p class="modal-description">Freshly baked with premium ingredients. Perfect for any occasion.</p>
+            <p id="modal-price" class="modal-price">$0.00</p>
+            <a href="#contact" class="btn-primary">Order This Item</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
