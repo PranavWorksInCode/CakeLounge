@@ -630,3 +630,45 @@ footer {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     z-index: 10;
 }
+
+/* Expandable Product Card */
+.product-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.product-card.expanded {
+    transform: scale(1.02);
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.product-details {
+    padding: 0 1.5rem 1.5rem;
+    border-top: 1px solid #eee;
+    margin-top: 1rem;
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.product-card.expanded .product-details {
+    display: block;
+}
+
+.flavor-select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.dynamic-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-gold);
+    margin: 10px 0;
+    text-align: center;
+}
+

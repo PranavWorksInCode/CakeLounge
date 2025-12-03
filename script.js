@@ -251,42 +251,98 @@ document.addEventListener('DOMContentLoaded', () => {
     // This is a helper to make existing static HTML interactive without changing HTML files
     const productCards = document.querySelectorAll('.product-card');
     productCards.forEach(card => {
-        const title = card.querySelector('h3')?.textContent;
-        const priceText = card.querySelector('.price')?.textContent;
-        // Extract price roughly
-        const priceMatch = priceText?.match(/\$?(\d+\.?\d*)/);
-        const price = priceMatch ? parseFloat(priceMatch[1]) : 10.00; // Default fallback
+        // Check if this is an expandable card (has product-details)
+        const details = card.querySelector('.product-details');
 
-        // Check if button exists, if not, we might want to add one or hijack the click
-        // For now, let's append a button if it's not the "Order Now" link
-        // Actually, let's just make the whole card clickable or add a button
+        if (details) {
+            // Expandable Card Logic
+            const basePrice = parseFloat(card.dataset.basePrice);
+            const flavorSelect = card.querySelector('.flavor-select');
+            const priceDisplay = card.querySelector('.dynamic-price');
+            const addToCartBtn = card.querySelector('.add-to-cart-btn');
+            const imagePlaceholder = card.querySelector('.product-image-placeholder');
+            const title = card.querySelector('h3')?.textContent;
 
-        let btn = card.querySelector('.btn-primary');
-        if (!btn) {
-            // If no button, create one
-            btn = document.createElement('button');
-            btn.className = 'btn-primary';
-            btn.textContent = 'Add to Cart';
-            btn.style.marginTop = '10px';
-            btn.style.width = '100%';
-            card.querySelector('.product-info').appendChild(btn);
-        } else {
-            // If button exists (like in index.html modals or similar), update text
-            if (btn.tagName === 'A') {
-                // It's a link, let's replace it with a button or prevent default
-                const newBtn = document.createElement('button');
-                newBtn.className = btn.className;
-                newBtn.textContent = 'Add to Cart';
-                btn.parentNode.replaceChild(newBtn, btn);
-                btn = newBtn;
+            // Toggle expansion on card click
+            card.addEventListener('click', (e) => {
+                // Don't toggle if clicking inside details (except for closing maybe, but for now let's keep it simple)
+                // Actually, we want to allow interaction with controls without closing
+                if (e.target.closest('.product-details')) return;
+
+                // Close other expanded cards
+                productCards.forEach(c => {
+                    if (c !== card) c.classList.remove('expanded');
+                });
+
+                card.classList.toggle('expanded');
+            });
+
+            // Handle Flavor Change
+            if (flavorSelect) {
+                flavorSelect.addEventListener('change', (e) => {
+                    const modifier = parseFloat(e.target.selectedOptions[0].dataset.modifier);
+                    const newPrice = basePrice + modifier;
+                    priceDisplay.textContent = `$${newPrice.toFixed(2)}`;
+
+                    // Change image color based on flavor (mock)
+                    const flavor = e.target.value;
+                    if (flavor === 'chocolate') imagePlaceholder.style.backgroundColor = '#5D4037';
+                    else if (flavor === 'red-velvet') imagePlaceholder.style.backgroundColor = '#C62828';
+                    else if (flavor === 'fruit') imagePlaceholder.style.backgroundColor = '#FFB74D';
+                    else imagePlaceholder.style.backgroundColor = '#f0e6d2'; // Vanilla
+                });
             }
-        }
 
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            addToCart(title, price);
-            // openCart(); // Removed as per user request
-        });
+            // Handle Add to Cart
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent card toggle
+
+                    const flavor = flavorSelect.options[flavorSelect.selectedIndex].text.split(' (')[0];
+                    const modifier = parseFloat(flavorSelect.selectedOptions[0].dataset.modifier);
+                    const finalPrice = basePrice + modifier;
+                    const itemName = `${title} - ${flavor}`;
+
+                    addToCart(itemName, finalPrice);
+                });
+            }
+
+        } else {
+            // Legacy/Standard Card Logic (for other pages)
+            const title = card.querySelector('h3')?.textContent;
+            const priceText = card.querySelector('.price')?.textContent;
+            // Extract price roughly
+            const priceMatch = priceText?.match(/\$?(\d+\.?\d*)/);
+            const price = priceMatch ? parseFloat(priceMatch[1]) : 10.00; // Default fallback
+
+            let btn = card.querySelector('.btn-primary');
+            if (!btn) {
+                // If no button, create one
+                btn = document.createElement('button');
+                btn.className = 'btn-primary';
+                btn.textContent = 'Add to Cart';
+                btn.style.marginTop = '10px';
+                btn.style.width = '100%';
+                card.querySelector('.product-info').appendChild(btn);
+            } else {
+                // If button exists (like in index.html modals or similar), update text
+                if (btn.tagName === 'A') {
+                    // It's a link, let's replace it with a button or prevent default
+                    const newBtn = document.createElement('button');
+                    newBtn.className = btn.className;
+                    newBtn.textContent = 'Add to Cart';
+                    btn.parentNode.replaceChild(newBtn, btn);
+                    btn = newBtn;
+                }
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                addToCart(title, price);
+                // openCart(); // Removed as per user request
+            });
+        }
     });
 });
