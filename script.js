@@ -119,15 +119,15 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     }
 
-    function addToCart(name, price) {
+    function addToCart(name, price, quantity = 1) {
         const existingItem = cart.find(item => item.name === name);
         if (existingItem) {
-            existingItem.quantity += 1;
+            existingItem.quantity += quantity;
         } else {
-            cart.push({ name, price, quantity: 1 });
+            cart.push({ name, price, quantity: quantity });
         }
         saveCart();
-        alert(`${name} added to cart!`); // Simple feedback
+        alert(`${quantity} x ${name} added to cart!`); // Simple feedback
     }
 
     window.removeFromCart = function (name) {
@@ -257,6 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDescription = productModal.querySelector('.modal-flavor-description');
         const modalPrice = productModal.querySelector('.modal-dynamic-price');
         const modalAddToCartBtn = productModal.querySelector('.modal-add-to-cart-btn');
+        const modalQuantityInput = productModal.querySelector('#modal-quantity'); // New Quantity Input
 
         const flavorDescriptions = {
             'vanilla': 'Classic vanilla sponge with smooth buttercream frosting.',
@@ -311,18 +312,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 const title = productModal.dataset.productTitle;
                 const basePrice = parseFloat(productModal.dataset.basePrice || 0);
 
-                let flavor = 'Vanilla';
+                let flavor = '';
                 let modifier = 0;
 
                 if (modalFlavorSelect) {
-                    flavor = modalFlavorSelect.options[modalFlavorSelect.selectedIndex].text.split(' (')[0];
+                    flavor = ' - ' + modalFlavorSelect.options[modalFlavorSelect.selectedIndex].text.split(' (')[0];
                     modifier = parseFloat(modalFlavorSelect.selectedOptions[0].dataset.modifier);
                 }
 
                 const finalPrice = basePrice + modifier;
-                const itemName = `${title} - ${flavor}`;
+                const itemName = `${title}${flavor}`;
 
-                addToCart(itemName, finalPrice);
+                // Get Quantity
+                let quantity = 1;
+                if (modalQuantityInput) {
+                    quantity = parseInt(modalQuantityInput.value) || 1;
+                }
+
+                addToCart(itemName, finalPrice, quantity);
                 closeProductModal();
             });
         }
@@ -401,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const modalFlavorSelect = productModal.querySelector('.modal-flavor-select');
                     const modalDescription = productModal.querySelector('.modal-flavor-description');
                     const modalImagePlaceholder = productModal.querySelector('.modal-image-placeholder');
+                    const modalQuantityInput = productModal.querySelector('#modal-quantity'); // New Quantity Input
 
                     const flavorDescriptions = {
                         'vanilla': 'Classic vanilla sponge with smooth buttercream frosting.',
@@ -414,6 +422,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (modalFlavorSelect) {
                         modalFlavorSelect.value = 'vanilla'; // Reset to default
+                    }
+
+                    if (modalQuantityInput) {
+                        modalQuantityInput.value = 1; // Reset quantity
                     }
 
                     if (modalDescription) modalDescription.textContent = flavorDescriptions['vanilla'];
