@@ -247,69 +247,192 @@ document.addEventListener('DOMContentLoaded', () => {
         renderFullCart();
     }
 
-    // Attach "Add to Cart" to existing product cards if they don't have it
-    // This is a helper to make existing static HTML interactive without changing HTML files
+    // --- Product Pop-out Modal Logic ---
+    const productModal = document.getElementById('product-modal');
+    if (productModal) {
+        const modalCloseBtn = productModal.querySelector('.close-modal-btn');
+        const modalTitle = productModal.querySelector('.modal-product-title');
+        const modalImagePlaceholder = productModal.querySelector('.modal-image-placeholder');
+        const modalFlavorSelect = productModal.querySelector('.modal-flavor-select');
+        const modalDescription = productModal.querySelector('.modal-flavor-description');
+        const modalPrice = productModal.querySelector('.modal-dynamic-price');
+        const modalAddToCartBtn = productModal.querySelector('.modal-add-to-cart-btn');
+
+        const flavorDescriptions = {
+            'vanilla': 'Classic vanilla sponge with smooth buttercream frosting.',
+            'chocolate': 'Rich chocolate ganache with moist sponge and dark chocolate shavings.',
+            'red-velvet': 'Velvety texture with premium cream cheese frosting.',
+            'fruit': 'Fresh seasonal fruits with light cream and vanilla sponge.'
+        };
+
+        // Close Modal Functions
+        function closeProductModal() {
+            productModal.classList.remove('show');
+            setTimeout(() => {
+                productModal.style.display = 'none';
+            }, 300); // Wait for transition
+        }
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeProductModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === productModal) closeProductModal();
+        });
+
+        // Flavor Change Logic
+        if (modalFlavorSelect) {
+            modalFlavorSelect.addEventListener('change', (e) => {
+                const modifier = parseFloat(e.target.selectedOptions[0].dataset.modifier);
+                const basePrice = parseFloat(productModal.dataset.basePrice || 0);
+                const newPrice = basePrice + modifier;
+
+                if (modalPrice) modalPrice.textContent = `$${newPrice.toFixed(2)}`;
+
+                // Change image color based on flavor (mock)
+                const flavor = e.target.value;
+                if (modalImagePlaceholder) {
+                    if (flavor === 'chocolate') modalImagePlaceholder.style.backgroundColor = '#5D4037';
+                    else if (flavor === 'red-velvet') modalImagePlaceholder.style.backgroundColor = '#C62828';
+                    else if (flavor === 'fruit') modalImagePlaceholder.style.backgroundColor = '#FFB74D';
+                    else modalImagePlaceholder.style.backgroundColor = '#f0e6d2'; // Vanilla
+                }
+
+                // Update Description
+                if (modalDescription && flavorDescriptions[flavor]) {
+                    modalDescription.textContent = flavorDescriptions[flavor];
+                }
+            });
+        }
+
+        // Add to Cart Logic
+        if (modalAddToCartBtn) {
+            modalAddToCartBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const title = productModal.dataset.productTitle;
+                const basePrice = parseFloat(productModal.dataset.basePrice || 0);
+
+                let flavor = 'Vanilla';
+                let modifier = 0;
+
+                if (modalFlavorSelect) {
+                    flavor = modalFlavorSelect.options[modalFlavorSelect.selectedIndex].text.split(' (')[0];
+                    modifier = parseFloat(modalFlavorSelect.selectedOptions[0].dataset.modifier);
+                }
+
+                const finalPrice = basePrice + modifier;
+                const itemName = `${title} - ${flavor}`;
+
+                addToCart(itemName, finalPrice);
+                closeProductModal();
+            });
+        }
+    }
+
+    // Attach "Add to Cart" or Modal Open to existing product cards
     const productCards = document.querySelectorAll('.product-card');
     productCards.forEach(card => {
-        // Check if this is an expandable card (has product-details)
+        // Check if this is an expandable card (has product-details) - now used for Modal
         const details = card.querySelector('.product-details');
 
-        if (details) {
-            // Expandable Card Logic
-            const basePrice = parseFloat(card.dataset.basePrice);
-            const flavorSelect = card.querySelector('.flavor-select');
-            const priceDisplay = card.querySelector('.dynamic-price');
-            const addToCartBtn = card.querySelector('.add-to-cart-btn');
-            const imagePlaceholder = card.querySelector('.product-image-placeholder');
-            const title = card.querySelector('h3')?.textContent;
-
-            // Toggle expansion on card click
+        if (details && productModal) {
+            // Pop-out Modal Logic
             card.addEventListener('click', (e) => {
-                // Don't toggle if clicking inside details (except for closing maybe, but for now let's keep it simple)
-                // Actually, we want to allow interaction with controls without closing
-                if (e.target.closest('.product-details')) return;
+                // Prevent opening if clicking on controls (though card controls are removed now)
+                if (e.target.closest('button') || e.target.closest('select')) return;
 
-                // Close other expanded cards
-                productCards.forEach(c => {
-                    if (c !== card) c.classList.remove('expanded');
-                });
+                const title = card.querySelector('h3')?.textContent;
+                const basePrice = parseFloat(card.dataset.basePrice);
 
-                card.classList.toggle('expanded');
+                // Populate Modal
+                const modalTitle = productModal.querySelector('.modal-product-title');
+                const modalPrice = productModal.querySelector('.modal-dynamic-price');
+                const modalFlavorSelect = productModal.querySelector('.modal-flavor-select');
+                const modalDescription = productModal.querySelector('.modal-flavor-description');
+                const modalImagePlaceholder = productModal.querySelector('.modal-image-placeholder');
+
+                const flavorDescriptions = {
+                    'vanilla': 'Classic vanilla sponge with smooth buttercream frosting.',
+                    'chocolate': 'Rich chocolate ganache with moist sponge and dark chocolate shavings.',
+                    'red-velvet': 'Velvety texture with premium cream cheese frosting.',
+                    'fruit': 'Fresh seasonal fruits with light cream and vanilla sponge.'
+                };
+
+                if (modalTitle) modalTitle.textContent = title;
+                if (modalPrice) modalPrice.textContent = `$${basePrice.toFixed(2)}`;
+
+                if (modalFlavorSelect) {
+                    modalFlavorSelect.value = 'vanilla'; // Reset to default
+                }
+
+                if (modalDescription) modalDescription.textContent = flavorDescriptions['vanilla'];
+                if (modalImagePlaceholder) modalImagePlaceholder.style.backgroundColor = '#f0e6d2'; // Reset color
+
+                // Store base price on the modal for calculations
+                productModal.dataset.basePrice = basePrice;
+                productModal.dataset.productTitle = title;
+
+                // Show Modal
+                productModal.style.display = 'flex';
+                // Small timeout to allow display:flex to apply before opacity transition
+                setTimeout(() => {
+                    productModal.classList.add('show');
+                }, 10);
             });
-
-            // Handle Flavor Change
-            if (flavorSelect) {
-                flavorSelect.addEventListener('change', (e) => {
-                    const modifier = parseFloat(e.target.selectedOptions[0].dataset.modifier);
-                    const newPrice = basePrice + modifier;
-                    priceDisplay.textContent = `$${newPrice.toFixed(2)}`;
-
-                    // Change image color based on flavor (mock)
-                    const flavor = e.target.value;
-                    if (flavor === 'chocolate') imagePlaceholder.style.backgroundColor = '#5D4037';
-                    else if (flavor === 'red-velvet') imagePlaceholder.style.backgroundColor = '#C62828';
-                    else if (flavor === 'fruit') imagePlaceholder.style.backgroundColor = '#FFB74D';
-                    else imagePlaceholder.style.backgroundColor = '#f0e6d2'; // Vanilla
-                });
-            }
-
-            // Handle Add to Cart
-            if (addToCartBtn) {
-                addToCartBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevent card toggle
-
-                    const flavor = flavorSelect.options[flavorSelect.selectedIndex].text.split(' (')[0];
-                    const modifier = parseFloat(flavorSelect.selectedOptions[0].dataset.modifier);
-                    const finalPrice = basePrice + modifier;
-                    const itemName = `${title} - ${flavor}`;
-
-                    addToCart(itemName, finalPrice);
-                });
-            }
 
         } else {
             // Legacy/Standard Card Logic (for other pages)
+            // If the card has data-base-price, it's likely a modal card that just had its details removed.
+            // We should NOT add a button to it if it's meant to trigger the modal.
+            if (card.hasAttribute('data-base-price')) {
+                // It's a modal card, but we removed .product-details.
+                // We should attach the modal click listener here as well if it wasn't attached above.
+                // Since 'details' is null, the above block didn't run.
+                // Let's attach the modal listener here.
+
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('button') || e.target.closest('select')) return;
+
+                    const title = card.querySelector('h3')?.textContent;
+                    const basePrice = parseFloat(card.dataset.basePrice);
+
+                    // Populate Modal
+                    const modalTitle = productModal.querySelector('.modal-product-title');
+                    const modalPrice = productModal.querySelector('.modal-dynamic-price');
+                    const modalFlavorSelect = productModal.querySelector('.modal-flavor-select');
+                    const modalDescription = productModal.querySelector('.modal-flavor-description');
+                    const modalImagePlaceholder = productModal.querySelector('.modal-image-placeholder');
+
+                    const flavorDescriptions = {
+                        'vanilla': 'Classic vanilla sponge with smooth buttercream frosting.',
+                        'chocolate': 'Rich chocolate ganache with moist sponge and dark chocolate shavings.',
+                        'red-velvet': 'Velvety texture with premium cream cheese frosting.',
+                        'fruit': 'Fresh seasonal fruits with light cream and vanilla sponge.'
+                    };
+
+                    if (modalTitle) modalTitle.textContent = title;
+                    if (modalPrice) modalPrice.textContent = `$${basePrice.toFixed(2)}`;
+
+                    if (modalFlavorSelect) {
+                        modalFlavorSelect.value = 'vanilla'; // Reset to default
+                    }
+
+                    if (modalDescription) modalDescription.textContent = flavorDescriptions['vanilla'];
+                    if (modalImagePlaceholder) modalImagePlaceholder.style.backgroundColor = '#f0e6d2'; // Reset color
+
+                    // Store base price on the modal for calculations
+                    productModal.dataset.basePrice = basePrice;
+                    productModal.dataset.productTitle = title;
+
+                    // Show Modal
+                    productModal.style.display = 'flex';
+                    setTimeout(() => {
+                        productModal.classList.add('show');
+                    }, 10);
+                });
+
+                return; // Skip adding legacy button
+            }
+
             const title = card.querySelector('h3')?.textContent;
             const priceText = card.querySelector('.price')?.textContent;
             // Extract price roughly
@@ -324,7 +447,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 btn.textContent = 'Add to Cart';
                 btn.style.marginTop = '10px';
                 btn.style.width = '100%';
-                card.querySelector('.product-info').appendChild(btn);
+                const info = card.querySelector('.product-info');
+                if (info) info.appendChild(btn);
             } else {
                 // If button exists (like in index.html modals or similar), update text
                 if (btn.tagName === 'A') {
@@ -337,12 +461,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                addToCart(title, price);
-                // openCart(); // Removed as per user request
-            });
+            if (btn) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    addToCart(title, price);
+                });
+            }
         }
     });
 });

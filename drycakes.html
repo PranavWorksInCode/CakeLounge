@@ -24,14 +24,14 @@
                     <a href="#" class="dropdown-btn">Our Products</a>
                     <div class="dropdown-content">
                         <a href="cakes.html">Cakes</a>
-                        <a href="special-cakes.html">Special Cakes</a>
+                        <a href="specialcakes.html">Special Cakes</a>
                         <a href="drycakes.html">Dry Cakes</a>
                         <a href="cupcakes.html">Cupcakes</a>
-                        <a href="cake-dessert-cups.html">Cake Dessert Cups</a>
+                        <a href="cakedessertcups.html">Cake Dessert Cups</a>
                         <a href="tiramisu.html">Tiramisu</a>
-                        <a href="cheese-cake.html">Cheese Cake</a>
-                        <a href="mousse-cake.html">Mousse Cake</a>
-                        <a href="bite-size-sweets.html">Bite Size Sweets</a>
+                        <a href="cheesecake.html">Cheese Cake</a>
+                        <a href="moussecake.html">Mousse Cake</a>
+                        <a href="bitesizesweets.html">Bite Size Sweets</a>
                     </div>
                 </div>
                 <a href="index.html#events">Events</a>
@@ -55,32 +55,32 @@
 
             <div class="product-grid">
                 <!-- 1lb -->
-                <div class="product-card fade-in">
-                    <div class="product-image-placeholder"></div>
+                <div class="product-card fade-in" data-base-price="20">
+                    <div class="product-image-placeholder" style="background-color: #e6d2b5;"></div>
                     <div class="product-info">
                         <h3>1 lb</h3>
                         <p>Standard Size</p>
-                        <span class="price">Perfect for small families</span>
+                        <span class="price-label">Starts from $20.00</span>
                     </div>
                 </div>
 
                 <!-- 2lb -->
-                <div class="product-card fade-in delay-1">
-                    <div class="product-image-placeholder"></div>
+                <div class="product-card fade-in delay-1" data-base-price="35">
+                    <div class="product-image-placeholder" style="background-color: #e6d2b5;"></div>
                     <div class="product-info">
                         <h3>2 lb</h3>
                         <p>Medium Size</p>
-                        <span class="price">Great for gatherings</span>
+                        <span class="price-label">Starts from $35.00</span>
                     </div>
                 </div>
 
                 <!-- 3lb -->
-                <div class="product-card fade-in">
-                    <div class="product-image-placeholder"></div>
+                <div class="product-card fade-in" data-base-price="50">
+                    <div class="product-image-placeholder" style="background-color: #e6d2b5;"></div>
                     <div class="product-info">
                         <h3>3 lb</h3>
                         <p>Large Size</p>
-                        <span class="price">Ideal for parties</span>
+                        <span class="price-label">Starts from $50.00</span>
                     </div>
                 </div>
             </div>
@@ -139,6 +139,33 @@
             <li><a href="index.html#events">Events</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
+    </div>
+
+    <!-- Product Pop-out Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content-wrapper">
+            <span class="close-modal-btn">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-col">
+                    <div class="modal-image-placeholder"></div>
+                </div>
+                <div class="modal-details-col">
+                    <h3 class="modal-product-title">Product Title</h3>
+                    <label>Select Flavor:</label>
+                    <select class="modal-flavor-select">
+                        <option value="vanilla" data-modifier="0">Vanilla (+$0)</option>
+                        <option value="chocolate" data-modifier="5">Chocolate (+$5)</option>
+                        <option value="red-velvet" data-modifier="8">Red Velvet (+$8)</option>
+                        <option value="fruit" data-modifier="10">Fresh Fruit (+$10)</option>
+                    </select>
+                    <p class="modal-flavor-description">Classic vanilla sponge with smooth buttercream frosting.</p>
+                    <div class="price-action-container">
+                        <div class="modal-dynamic-price">$0.00</div>
+                        <button class="btn-primary modal-add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
