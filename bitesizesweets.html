@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite Size Sweets | Cake Lounge</title>
+    <meta name="description"
+        content="Delicious bite-sized treats including Donuts, Cake Pops, Cake Slices, Muffins, and Chocolate Covered Strawberries.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cake Lounge</a>
+            <div class="nav-links desktop-only">
+                <a href="index.html#home">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="readtogocakes.html">Ready to Go</a>
+                        <a href="cakes.html">Cakes</a>
+                        <a href="specialcakes.html">Special Cakes</a>
+                        <a href="drycakes.html">Dry Cakes</a>
+                        <a href="cupcakes.html">Cupcakes</a>
+                        <a href="cakedessertcups.html">Cake Dessert Cups</a>
+                        <a href="tiramisu.html">Tiramisu</a>
+                        <a href="cheesecake.html">Cheese Cake</a>
+                        <a href="moussecake.html">Mousse Cake</a>
+                        <a href="bitesizesweets.html">Bite Size Sweets</a>
+                    </div>
+                </div>
+                <a href="about.html">About Us</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact" class="btn-primary">Order Now</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="section bg-cream" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="subtitle">Our Menu</span>
+                <h2>Bite Size Sweets</h2>
+                <p>Perfect little treats for any gathering.</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Donuts -->
+                <div class="product-card fade-in" data-title="Donuts" data-price-per-unit="3.50" data-min-qty="12"
+                    data-step="6" data-type="per-piece">
+                    <div class="product-image-placeholder" style="background-color: #eec0c6;"></div>
+                    <div class="product-info">
+                        <h3>Donuts</h3>
+                        <p>Soft, glazed, and delicious.</p>
+                        <span class="price-label">$3.50 / piece (min 12)</span>
+                    </div>
+                </div>
+
+                <!-- Cake Pops -->
+                <div class="product-card fade-in delay-1" data-title="Cake Pops" data-price-per-unit="2.99"
+                    data-min-qty="10" data-step="5" data-type="per-piece">
+                    <div class="product-image-placeholder" style="background-color: #f48fb1;"></div>
+                    <div class="product-info">
+                        <h3>Cake Pops</h3>
+                        <p>Fun and flavorful cake on a stick.</p>
+                        <span class="price-label">$2.99 / piece (min 10)</span>
+                    </div>
+                </div>
+
+                <!-- Cake Slices -->
+                <div class="product-card fade-in delay-2" data-title="Cake Slices" data-price-per-unit="4.99"
+                    data-min-qty="6" data-step="1" data-type="per-piece">
+                    <div class="product-image-placeholder" style="background-color: #d7ccc8;"></div>
+                    <div class="product-info">
+                        <h3>Cake Slices</h3>
+                        <p>Generous slices of our premium cakes.</p>
+                        <span class="price-label">$4.99 / piece (min 6)</span>
+                    </div>
+                </div>
+
+                <!-- Muffins -->
+                <div class="product-card fade-in" data-title="Muffins" data-bundle-price="25.00" data-bundle-qty="24"
+                    data-type="fixed-bundle">
+                    <div class="product-image-placeholder" style="background-color: #8d6e63;"></div>
+                    <div class="product-info">
+                        <h3>Muffins</h3>
+                        <p>Freshly baked muffins.</p>
+                        <span class="price-label">$25.00 for 24 pieces</span>
+                    </div>
+                </div>
+
+                <!-- Chocolate Covered Strawberries -->
+                <div class="product-card fade-in delay-1" data-title="Chocolate Covered Strawberries"
+                    data-price-per-unit="1.99" data-min-qty="15" data-step="5" data-type="per-piece">
+                    <div class="product-image-placeholder" style="background-color: #c2185b;"></div>
+                    <div class="product-info">
+                        <h3>Chocolate Covered Strawberries</h3>
+                        <p>Fresh strawberries dipped in rich chocolate.</p>
+                        <span class="price-label">$1.99 / piece (min 15)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-dark text-light">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Visit Us</h2>
+                <p>1472 Evans Blvd<br>London, ON N6M 0A8</p>
+                <p><strong>Hours:</strong><br>Mon-Sun: 8am - 1am<br></p>
+                <p><strong>Phone:</strong><br>+1 647-864-3713</p>
+            </div>
+            <div class="contact-form-wrapper">
+                <h3>Start Your Order</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">I'm interested in...</label>
+                        <select id="type">
+                            <option value="daily">Daily Treats (Pickup)</option>
+                            <option value="wedding">Wedding Cake</option>
+                            <option value="birthday">Birthday/Event Cake</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date Needed</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Details</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Cake Lounge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button id="close-sidebar" class="close-btn">&times;</button>
+        <ul class="sidebar-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="#">Our Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Product Pop-out Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content-wrapper">
+            <span class="close-modal-btn">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-col">
+                    <div class="modal-image-placeholder"></div>
+                </div>
+                <div class="modal-details-col">
+                    <h3 class="modal-product-title">Product Title</h3>
+
+                    <!-- Dynamic Bundle Selector -->
+                    <div class="modal-bundle-wrapper" style="margin-bottom: 20px;">
+                        <label for="modal-bundle" style="display: block; margin-bottom: 5px; font-weight: bold;">Select
+                            Quantity:</label>
+                        <select id="modal-bundle" class="modal-bundle-select"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                            <!-- Options will be populated by JS -->
+                        </select>
+                    </div>
+
+                    <p class="modal-flavor-description">Freshly made bite-sized delights.</p>
+
+                    <div class="price-action-container">
+                        <div class="modal-dynamic-price">$0.00</div>
+                        <button class="btn-primary modal-add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productModal = document.getElementById('product-modal');
+            const modalTitle = productModal.querySelector('.modal-product-title');
+            const modalPrice = productModal.querySelector('.modal-dynamic-price');
+            const modalBundleSelect = document.getElementById('modal-bundle');
+            const modalImagePlaceholder = productModal.querySelector('.modal-image-placeholder');
+            const modalAddToCartBtn = productModal.querySelector('.modal-add-to-cart-btn');
+
+            // Attach click event to product cards
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.dataset.title;
+                    const type = card.dataset.type;
+
+                    modalTitle.textContent = title;
+
+                    // Set image color based on card placeholder
+                    const cardImageColor = card.querySelector('.product-image-placeholder').style.backgroundColor;
+                    modalImagePlaceholder.style.backgroundColor = cardImageColor;
+
+                    // Populate Dropdown
+                    modalBundleSelect.innerHTML = ''; // Clear existing
+
+                    if (type === 'per-piece') {
+                        const pricePerUnit = parseFloat(card.dataset.pricePerUnit);
+                        const minQty = parseInt(card.dataset.minQty);
+                        const step = parseInt(card.dataset.step);
+
+                        // Generate 5-6 options
+                        for (let i = 0; i < 6; i++) {
+                            const qty = minQty + (i * step);
+                            const price = (qty * pricePerUnit).toFixed(2);
+                            const option = document.createElement('option');
+                            option.value = price;
+                            option.dataset.quantity = qty;
+                            option.textContent = `${qty} pieces`;
+                            modalBundleSelect.appendChild(option);
+                        }
+                    } else if (type === 'fixed-bundle') {
+                        const bundlePrice = parseFloat(card.dataset.bundlePrice);
+                        const bundleQty = parseInt(card.dataset.bundleQty);
+
+                        // Offer multiples of the bundle
+                        for (let i = 1; i <= 5; i++) {
+                            const qty = bundleQty * i;
+                            const price = (bundlePrice * i).toFixed(2);
+                            const option = document.createElement('option');
+                            option.value = price;
+                            option.dataset.quantity = qty;
+                            option.textContent = `${qty} pieces`;
+                            modalBundleSelect.appendChild(option);
+                        }
+                    }
+
+                    // Set initial price
+                    const initialPrice = parseFloat(modalBundleSelect.value);
+                    modalPrice.textContent = `$${initialPrice.toFixed(2)}`;
+                    productModal.dataset.basePrice = initialPrice;
+
+                    // Show Modal
+                    productModal.style.display = 'flex';
+                    setTimeout(() => {
+                        productModal.classList.add('show');
+                    }, 10);
+                });
+            });
+
+            // Update price on change
+            if (modalBundleSelect) {
+                modalBundleSelect.addEventListener('change', (e) => {
+                    const price = parseFloat(e.target.value);
+                    modalPrice.textContent = `$${price.toFixed(2)}`;
+                });
+            }
+
+            // Add to Cart Logic
+            if (modalAddToCartBtn) {
+                // Clone to remove previous listeners
+                const newBtn = modalAddToCartBtn.cloneNode(true);
+                modalAddToCartBtn.parentNode.replaceChild(newBtn, modalAddToCartBtn);
+
+                newBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const title = modalTitle.textContent;
+                    const selectedOption = modalBundleSelect.options[modalBundleSelect.selectedIndex];
+                    const price = parseFloat(selectedOption.value);
+                    const quantity = parseInt(selectedOption.dataset.quantity);
+
+                    const itemName = `${title} - ${quantity} pieces`;
+
+                    if (window.addToCart) {
+                        window.addToCart(itemName, price, 1);
+
+                        // Close modal
+                        productModal.classList.remove('show');
+                        setTimeout(() => {
+                            productModal.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
