@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     }
 
-    function addToCart(name, price, quantity = 1) {
+    window.addToCart = function (name, price, quantity = 1) {
         const existingItem = cart.find(item => item.name === name);
         if (existingItem) {
             existingItem.quantity += quantity;
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         saveCart();
         alert(`${quantity} x ${name} added to cart!`); // Simple feedback
-    }
+    };
 
     window.removeFromCart = function (name) {
         cart = cart.filter(item => item.name !== name);

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcakes | Cake Lounge</title>
+    <meta name="description"
+        content="Delicious cupcakes in Vanilla, Chocolate, and Red Velvet flavors. Available in bundles.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Cake Lounge</a>
+            <div class="nav-links desktop-only">
+                <a href="index.html#home">Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-btn">Our Products</a>
+                    <div class="dropdown-content">
+                        <a href="readtogocakes.html">Ready to Go</a>
+                        <a href="cakes.html">Cakes</a>
+                        <a href="specialcakes.html">Special Cakes</a>
+                        <a href="drycakes.html">Dry Cakes</a>
+                        <a href="cupcakes.html">Cupcakes</a>
+                        <a href="cakedessertcups.html">Cake Dessert Cups</a>
+                        <a href="tiramisu.html">Tiramisu</a>
+                        <a href="cheesecake.html">Cheese Cake</a>
+                        <a href="moussecake.html">Mousse Cake</a>
+                        <a href="bitesizesweets.html">Bite Size Sweets</a>
+                    </div>
+                </div>
+                <a href="about.html">About Us</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact" class="btn-primary">Order Now</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="section bg-cream" style="padding-top: 120px;">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="subtitle">Our Menu</span>
+                <h2>Cupcakes</h2>
+                <p>Delightful treats perfect for sharing.</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Vanilla -->
+                <div class="product-card fade-in" data-base-price="20" data-is-bundle="true">
+                    <div class="product-image-placeholder" style="background-color: #f0e6d2;"></div>
+                    <div class="product-info">
+                        <h3>Vanilla Cupcakes</h3>
+                        <p>Classic vanilla sponge with smooth buttercream.</p>
+                        <span class="price-label">From $20.00 (6 pcs)</span>
+                    </div>
+                </div>
+
+                <!-- Chocolate -->
+                <div class="product-card fade-in delay-1" data-base-price="20" data-is-bundle="true">
+                    <div class="product-image-placeholder" style="background-color: #5D4037;"></div>
+                    <div class="product-info">
+                        <h3>Chocolate Cupcakes</h3>
+                        <p>Rich chocolate ganache with moist sponge.</p>
+                        <span class="price-label">From $20.00 (6 pcs)</span>
+                    </div>
+                </div>
+
+                <!-- Red Velvet -->
+                <div class="product-card fade-in" data-base-price="20" data-is-bundle="true">
+                    <div class="product-image-placeholder" style="background-color: #C62828;"></div>
+                    <div class="product-info">
+                        <h3>Red Velvet Cupcakes</h3>
+                        <p>Velvety texture with premium cream cheese frosting.</p>
+                        <span class="price-label">From $20.00 (6 pcs)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section bg-dark text-light">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2>Visit Us</h2>
+                <p>1472 Evans Blvd<br>London, ON N6M 0A8</p>
+                <p><strong>Hours:</strong><br>Mon-Sun: 8am - 1am<br></p>
+                <p><strong>Phone:</strong><br>+1 647-864-3713</p>
+            </div>
+            <div class="contact-form-wrapper">
+                <h3>Start Your Order</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">I'm interested in...</label>
+                        <select id="type">
+                            <option value="daily">Daily Treats (Pickup)</option>
+                            <option value="wedding">Wedding Cake</option>
+                            <option value="birthday">Birthday/Event Cake</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date Needed</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Details</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Cake Lounge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <button id="close-sidebar" class="close-btn">&times;</button>
+        <ul class="sidebar-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="#">Our Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Product Pop-out Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content-wrapper">
+            <span class="close-modal-btn">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-col">
+                    <div class="modal-image-placeholder"></div>
+                </div>
+                <div class="modal-details-col">
+                    <h3 class="modal-product-title">Product Title</h3>
+
+                    <!-- Bundle Selector (Replaces Quantity Input for Cupcakes) -->
+                    <div class="modal-bundle-wrapper" style="margin-bottom: 20px;">
+                        <label for="modal-bundle" style="display: block; margin-bottom: 5px; font-weight: bold;">Select
+                            Bundle:</label>
+                        <select id="modal-bundle" class="modal-bundle-select"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+                            <option value="20" data-quantity="6">6 pieces</option>
+                            <option value="35" data-quantity="12">12 pieces</option>
+                            <option value="50" data-quantity="18">18 pieces</option>
+                            <option value="65" data-quantity="24">24 pieces</option>
+                            <option value="95" data-quantity="36">36 pieces</option>
+                            <option value="120" data-quantity="50">50 pieces</option>
+                        </select>
+                    </div>
+
+                    <!-- Hidden Quantity Input for compatibility if needed, though we'll likely use bundle logic -->
+                    <input type="hidden" id="modal-quantity" value="1">
+
+                    <p class="modal-flavor-description">Delicious cupcakes baked fresh daily.</p>
+
+                    <div class="price-action-container">
+                        <div class="modal-dynamic-price">$20.00</div>
+                        <button class="btn-primary modal-add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Specific logic for Cupcakes Bundle
+        document.addEventListener('DOMContentLoaded', () => {
+            const modalBundleSelect = document.getElementById('modal-bundle');
+            const modalPrice = document.querySelector('.modal-dynamic-price');
+            const productModal = document.getElementById('product-modal');
+
+            if (modalBundleSelect && modalPrice) {
+                modalBundleSelect.addEventListener('change', (e) => {
+                    const price = parseFloat(e.target.value);
+                    modalPrice.textContent = `$${price.toFixed(2)}`;
+                    // Update base price data attribute so script.js logic (if any) uses correct base
+                    if (productModal) {
+                        productModal.dataset.basePrice = price;
+                    }
+                });
+            }
+
+            // Override the Add to Cart button click for this page to handle bundles
+            const modalAddToCartBtn = document.querySelector('.modal-add-to-cart-btn');
+            if (modalAddToCartBtn) {
+                // Clone to remove existing event listeners from script.js
+                const newBtn = modalAddToCartBtn.cloneNode(true);
+                modalAddToCartBtn.parentNode.replaceChild(newBtn, modalAddToCartBtn);
+
+                newBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const title = document.querySelector('.modal-product-title').textContent;
+                    const selectedOption = modalBundleSelect.options[modalBundleSelect.selectedIndex];
+                    const price = parseFloat(selectedOption.value);
+                    const quantity = parseInt(selectedOption.dataset.quantity); // This is the "count" of cupcakes, but for cart logic it might be 1 bundle
+
+                    // We can add it as "1 x [Title] (6 pieces)" or "[Quantity] x [Title]"
+                    // Let's go with "1 x [Title] - [Quantity] pieces"
+                    const itemName = `${title} - ${quantity} pieces`;
+
+                    // Use the global addToCart exposed in script.js
+                    if (window.addToCart) {
+                        window.addToCart(itemName, price, 1); // 1 bundle
+
+                        // Close modal
+                        const productModal = document.getElementById('product-modal');
+                        productModal.classList.remove('show');
+                        setTimeout(() => {
+                            productModal.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
