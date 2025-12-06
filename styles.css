@@ -176,6 +176,14 @@ img {
     position: relative;
 }
 
+/* Hover support for desktop */
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+        animation: fadeIn 0.3s ease;
+    }
+}
+
 .dropdown-content {
     display: none;
     position: absolute;

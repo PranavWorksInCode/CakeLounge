@@ -28,10 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Dropdown Toggle
+    // Dropdown Toggle (Mobile or fallback)
     if (dropdownBtn) {
         dropdownBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (dropdownContent) dropdownContent.classList.toggle('show');
+            const href = dropdownBtn.getAttribute('href');
+            if (href === '#' || !href) {
+                e.preventDefault();
+                if (dropdownContent) dropdownContent.classList.toggle('show');
+            }
+            // If href is a real link, let it navigate
         });
     }
 
