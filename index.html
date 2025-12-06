@@ -46,6 +46,48 @@
             font-weight: 700;
         }
 
+        /* Values Box Styles */
+        .hero-values-box {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-value-item {
+            flex: 1;
+            padding: 0 1rem;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-value-item:last-child {
+            border-right: none;
+        }
+
+        .hero-value-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            color: var(--color-gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-value-item p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #555;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+
         /* Scroller Sections */
         .scroller-section {
             padding: 4rem 0;
@@ -114,6 +156,21 @@
                 font-size: 3rem;
             }
 
+            .hero-values-box {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero-value-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding-bottom: 1rem;
+            }
+
+            .hero-value-item:last-child {
+                border-bottom: none;
+            }
+
             .scroller-item {
                 flex: 0 0 280px;
             }
@@ -162,6 +219,22 @@
                 <a href="#cakes-section" class="btn-primary">Explore Menu</a>
                 <a href="#contact" class="btn-secondary">Book Consultation</a>
             </div>
+
+            <div class="hero-values-box">
+                <div class="hero-value-item">
+                    <h3>100% Eggless</h3>
+                    <p>Perfect for vegans, those with egg allergies, or anyone seeking ethical alternatives.</p>
+                </div>
+                <div class="hero-value-item">
+                    <h3>Uncompromising Flavor</h3>
+                    <p>Forget "just okay." Our focus is on decadent, unforgettable taste.</p>
+                </div>
+                <div class="hero-value-item">
+                    <h3>Baked with Love</h3>
+                    <p>Every item is made from scratch daily, using the finest natural ingredients.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
