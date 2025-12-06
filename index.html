@@ -13,6 +13,112 @@
         href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Internal CSS for Index Page Specifics -->
+    <style>
+        /* Hero Section with Faded Background */
+        .hero-custom {
+            margin-top: 80px;
+            /* Offset fixed navbar */
+            min-height: 80vh;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('assets/homepage/hero.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-custom-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-custom-content p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--color-dark);
+            font-weight: 700;
+        }
+
+        /* Scroller Sections */
+        .scroller-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .scroller-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .section-quote {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--color-text-light);
+            margin-top: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scroller-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 5%;
+            /* Side padding for scroll start */
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            align-items: stretch;
+        }
+
+        .scroller-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scroller-item {
+            flex: 0 0 320px;
+            /* Fixed width for consistency */
+            margin-bottom: 10px;
+            /* Shadow clearance */
+        }
+
+        /* Ensure product cards take full height of flex container */
+        .scroller-item .product-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scroller-item .product-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-custom-content h1 {
+                font-size: 3rem;
+            }
+
+            .scroller-item {
+                flex: 0 0 280px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -38,7 +144,6 @@
                 </div>
                 <a href="about.html">About Us</a>
                 <a href="#events">Events</a>
-
             </div>
             <button class="mobile-menu-btn">
                 <span></span>
@@ -48,76 +153,178 @@
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="container hero-container">
-            <div class="hero-content fade-in-left">
-                <h1>Life is Sweet.<br>Enjoy a Slice.</h1>
-                <p>Handcrafted cakes, pastries, and desserts made with love and the finest ingredients.</p>
-                <div class="hero-btns">
-                    <a href="products.html" class="btn-primary">View Menu</a>
-                    <a href="#contact" class="btn-secondary">Book Consultation</a>
-                </div>
-            </div>
-            <div class="hero-image fade-in-right">
-                <img src="assets/homepage/hero.png" alt="Delicious layered cake with berries">
+    <!-- New Hero Section -->
+    <section id="home" class="hero-custom fade-in">
+        <div class="hero-custom-content">
+            <h1>Life is Sweet.<br>Enjoy a Slice.</h1>
+            <p>Handcrafted cakes, pastries, and desserts made with love.</p>
+            <div class="hero-btns">
+                <a href="#cakes-section" class="btn-primary">Explore Menu</a>
+                <a href="#contact" class="btn-secondary">Book Consultation</a>
             </div>
         </div>
     </section>
 
-    <section id="our_products" class="section bg-cream">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="subtitle">Our Menu</span>
-                <h2>Daily Fresh Bakes</h2>
-                <p>Freshly baked every morning. Stop by or order for pickup.</p>
-            </div>
-            <div class="split-layout">
-                <div class="split-image fade-in-left">
-                    <img src="assets/homepage/cupcakes.png" alt="Box of gourmet pastel cupcakes">
+    <!-- Cakes Section -->
+    <section id="cakes-section" class="scroller-section bg-cream">
+        <div class="scroller-header fade-in">
+            <span class="subtitle">Celebration Cakes</span>
+            <h2>Classic Cakes</h2>
+            <p class="section-quote">"A party without cake is just a meeting." - Julia Child</p>
+        </div>
+        <div class="scroller-container">
+            <!-- Items -->
+            <div class="scroller-item product-card" data-base-price="35">
+                <div class="product-image-placeholder" style="background-color: #f7e7ce;"></div>
+                <div class="product-info">
+                    <h3>Classic Vanilla Cake</h3>
+                    <p>Light, fluffy, and timeless.</p>
+                    <span class="price">$35.00</span>
                 </div>
-                <div class="split-content fade-in-right">
-                    <h3>Cupcakes & Pastries</h3>
-                    <p>Our display case is filled daily with a rotating selection of gourmet cupcakes, macarons, and
-                        artisan pastries. Perfect for a midday treat or a gift for someone special.</p>
-                    <ul class="feature-list">
-                        <li>Cakes</li>
-                        <li>Special Cakes</li>
-                        <li>Cake Dessert Cups</li>
-                        <li>Cupcakes</li>
-                        <li>Pastries</li>
-                        <li>Cookies</li>
-                        <li>Bite Size Sweets</li>
-                    </ul>
-                    <a href="#contact" class="btn-text">Order for Pickup &rarr;</a>
+            </div>
+            <div class="scroller-item product-card" data-base-price="40">
+                <div class="product-image-placeholder" style="background-color: #5D4037;"></div>
+                <div class="product-info">
+                    <h3>Rich Chocolate Glaze</h3>
+                    <p>Decadent chocolate layers.</p>
+                    <span class="price">$40.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="45">
+                <div class="product-image-placeholder" style="background-color: #d64b4b;"></div>
+                <div class="product-info">
+                    <h3>Red Velvet Dream</h3>
+                    <p>Southern style with cream cheese.</p>
+                    <span class="price">$45.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="38">
+                <div class="product-image-placeholder" style="background-color: #f7d7ce;"></div>
+                <div class="product-info">
+                    <h3>Strawberry Fields</h3>
+                    <p>Fresh strawberry cream.</p>
+                    <span class="price">$38.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="42">
+                <div class="product-image-placeholder" style="background-color: #e6e6e6;"></div>
+                <div class="product-info">
+                    <h3>Cookies & Cream</h3>
+                    <p>Oreo crumble delight.</p>
+                    <span class="price">$42.00</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="events" class="section">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="subtitle">Custom Creations</span>
-                <h2>For Your Special Moments</h2>
-                <p>Weddings, birthdays, and corporate gatherings deserve a centerpiece that tastes as good as it
-                    looks.
-                </p>
-            </div>
-            <div class="split-layout reverse">
-                <div class="split-image fade-in-right">
-                    <img src="assets/homepage/wedding.png" alt="Elegant tiered wedding cake">
+    <!-- Cupcakes Section -->
+    <section class="scroller-section">
+        <div class="scroller-header fade-in">
+            <span class="subtitle">Little Bites</span>
+            <h2>Cupcakes</h2>
+            <p class="section-quote">"Cupcakes are muffins that believed in miracles."</p>
+        </div>
+        <div class="scroller-container">
+            <div class="scroller-item product-card" data-base-price="4">
+                <div class="product-image-placeholder"></div>
+                <div class="product-info">
+                    <h3>Vanilla Bean</h3>
+                    <p>Single classic cupcake.</p>
+                    <span class="price">$4.00</span>
                 </div>
-                <div class="split-content fade-in-left">
-                    <h3>Weddings & Events</h3>
-                    <p>We work closely with you to design a custom cake that matches your theme and flavor
-                        preferences.
-                        From elegant tiered cakes to modern artistic designs.</p>
-                    <ul class="feature-list">
-                        <li>Complimentary Tastings</li>
-                        <li>Custom Design Consultation</li>
-                        <li>Delivery & Setup</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Book Consultation</a>
+            </div>
+            <div class="scroller-item product-card" data-base-price="4">
+                <div class="product-image-placeholder" style="background-color: #5D4037;"></div>
+                <div class="product-info">
+                    <h3>Triple Chocolate</h3>
+                    <p>Chocolate sponge & frosting.</p>
+                    <span class="price">$4.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="5">
+                <div class="product-image-placeholder" style="background-color: #ffd700;"></div>
+                <div class="product-info">
+                    <h3>Lemon Meringue</h3>
+                    <p>Zesty and sweet.</p>
+                    <span class="price">$5.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="5">
+                <div class="product-image-placeholder" style="background-color: #b0e0e6;"></div>
+                <div class="product-info">
+                    <h3>Blueberry Bliss</h3>
+                    <p>Fresh blueberry infusion.</p>
+                    <span class="price">$5.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Cakes Section -->
+    <section class="scroller-section bg-cream">
+        <div class="scroller-header fade-in">
+            <span class="subtitle">Signature & Custom</span>
+            <h2>Special Cakes</h2>
+            <p class="section-quote">"Happiness is the icing on the cake."</p>
+        </div>
+        <div class="scroller-container">
+            <div class="scroller-item product-card" data-base-price="80">
+                <div class="product-image-placeholder"></div>
+                <div class="product-info">
+                    <h3>Floral Tier Cake</h3>
+                    <p>Elegant 2-tier flower design.</p>
+                    <span class="price">$80.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="95">
+                <div class="product-image-placeholder"></div>
+                <div class="product-info">
+                    <h3>Gold Leaf Celebration</h3>
+                    <p>Edible gold and black forest.</p>
+                    <span class="price">$95.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="120">
+                <div class="product-image-placeholder"></div>
+                <div class="product-info">
+                    <h3>Wedding Classic</h3>
+                    <p>3-tier white fondant.</p>
+                    <span class="price">$120.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cheesecake Section -->
+    <section class="scroller-section">
+        <div class="scroller-header fade-in">
+            <span class="subtitle">Creamy & Dreamy</span>
+            <h2>Cheesecakes</h2>
+            <p class="section-quote">"Stressed is just desserts spelled backwards."</p>
+        </div>
+        <div class="scroller-container">
+            <div class="scroller-item product-card" data-base-price="45">
+                <div class="product-image-placeholder" style="background-color: #fffdd0;"></div>
+                <div class="product-info">
+                    <h3>New York Classic</h3>
+                    <p>Rich, creamy baked cheesecake.</p>
+                    <span class="price">$45.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="50">
+                <div class="product-image-placeholder" style="background-color: #8b0000;"></div>
+                <div class="product-info">
+                    <h3>Strawberry Swirl</h3>
+                    <p>Fresh strawberry coulis.</p>
+                    <span class="price">$50.00</span>
+                </div>
+            </div>
+            <div class="scroller-item product-card" data-base-price="55">
+                <div class="product-image-placeholder" style="background-color: #3e2723;"></div>
+                <div class="product-info">
+                    <h3>Chocolate Truffle</h3>
+                    <p>For the serious chocolate lover.</p>
+                    <span class="price">$55.00</span>
                 </div>
             </div>
         </div>
@@ -178,7 +385,34 @@
         </ul>
     </div>
 
-    <!-- Menu Modal -->
+    <!-- Product Pop-out Modal (Copied Structure) -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content-wrapper">
+            <span class="close-modal-btn">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-col">
+                    <div class="modal-image-placeholder"></div>
+                </div>
+                <div class="modal-details-col">
+                    <h3 class="modal-product-title">Product Title</h3>
+                    <label>Select Flavor:</label>
+                    <select class="modal-flavor-select">
+                        <option value="vanilla" data-modifier="0">Vanilla (+$0)</option>
+                        <option value="chocolate" data-modifier="5">Chocolate (+$5)</option>
+                        <option value="red-velvet" data-modifier="8">Red Velvet (+$8)</option>
+                        <option value="fruit" data-modifier="10">Fresh Fruit (+$10)</option>
+                    </select>
+                    <p class="modal-flavor-description">Classic vanilla sponge with smooth buttercream frosting.</p>
+                    <div class="price-action-container">
+                        <div class="modal-dynamic-price">$0.00</div>
+                        <button class="btn-primary modal-add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Old Menu Modal for backward compatibility (if needed) -->
     <div id="menu-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
