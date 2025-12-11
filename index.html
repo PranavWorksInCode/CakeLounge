@@ -47,45 +47,69 @@
         }
 
         /* Values Box Styles */
-        .hero-values-box {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
-            text-align: left;
+        /* Hero Values Slider Styles */
+        .hero-slider-container {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            position: relative;
             background: rgba(255, 255, 255, 0.9);
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            overflow: hidden;
         }
 
-        .hero-value-item {
-            flex: 1;
+        .hero-slider-track {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            width: 300%;
+            /* 3 slides */
+        }
+
+        .hero-slide {
+            width: calc(100% / 3);
+            /* Each slide takes 1/3 of the track */
+            flex-shrink: 0;
             padding: 0 1rem;
-            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
-        .hero-value-item:last-child {
-            border-right: none;
-        }
-
-        .hero-value-item h3 {
+        .hero-slide h3 {
             font-family: var(--font-heading);
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--color-gold);
             margin-bottom: 0.8rem;
         }
 
-        .hero-value-item p {
-            font-size: 1rem;
+        .hero-slide p {
+            font-size: 1.1rem;
             font-weight: 400;
             color: #555;
             margin: 0;
-            line-height: 1.5;
+            line-height: 1.6;
         }
+
+        /* Slider Dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--color-gold);
+        }
+
 
 
         /* Scroller Sections */
@@ -156,20 +180,6 @@
                 font-size: 3rem;
             }
 
-            .hero-values-box {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .hero-value-item {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-                padding-bottom: 1rem;
-            }
-
-            .hero-value-item:last-child {
-                border-bottom: none;
-            }
 
             .scroller-item {
                 flex: 0 0 280px;
@@ -220,18 +230,29 @@
                 <a href="#contact" class="btn-secondary">Book Consultation</a>
             </div>
 
-            <div class="hero-values-box">
-                <div class="hero-value-item">
-                    <h3>100% Eggless</h3>
-                    <p>Perfect for vegans, those with egg allergies, or anyone seeking ethical alternatives.</p>
+            <div class="hero-slider-container">
+                <div class="hero-slider-track" id="sliderTrack">
+                    <!-- Slide 1 -->
+                    <div class="hero-slide">
+                        <h3>100% Eggless</h3>
+                        <p>Perfect for vegans, those with egg allergies, or anyone seeking ethical alternatives.</p>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="hero-slide">
+                        <h3>Uncompromising Flavor</h3>
+                        <p>Forget "just okay." Our focus is on decadent, unforgettable taste.</p>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="hero-slide">
+                        <h3>Baked with Love</h3>
+                        <p>Every item is made from scratch daily, using the finest natural ingredients.</p>
+                    </div>
                 </div>
-                <div class="hero-value-item">
-                    <h3>Uncompromising Flavor</h3>
-                    <p>Forget "just okay." Our focus is on decadent, unforgettable taste.</p>
-                </div>
-                <div class="hero-value-item">
-                    <h3>Baked with Love</h3>
-                    <p>Every item is made from scratch daily, using the finest natural ingredients.</p>
+                <!-- Navigation Dots -->
+                <div class="slider-dots" id="sliderDots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
                 </div>
             </div>
 
@@ -497,6 +518,50 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Hero Slider Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('sliderTrack');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+            const totalSlides = dots.length;
+            const intervalTime = 7000; // 7 seconds
+
+            function updateSlider() {
+                // Move track
+                track.style.transform = `translateX(-${currentIndex * (100 / 3)}%)`;
+
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }
+
+            // Auto-play
+            let slideInterval = setInterval(nextSlide, intervalTime);
+
+            // Manual Navigation
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    currentIndex = parseInt(dot.getAttribute('data-index'));
+                    updateSlider();
+
+                    // Reset interval on manual interaction
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, intervalTime);
+                });
+            });
+
+            // Optional: Pause on hover
+            const sliderContainer = document.querySelector('.hero-slider-container');
+            sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            sliderContainer.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, intervalTime));
+        });
+    </script>
 </body>
 
 </html>

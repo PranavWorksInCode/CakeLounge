@@ -81,7 +81,8 @@
                         </div>
 
                         <h3>Payment Information</h3>
-                        <div class="form-group">
+                        <div id="card-container"></div>
+                        <!-- <div class="form-group">
                             <label for="card">Card Number</label>
                             <input type="text" id="card" placeholder="0000 0000 0000 0000" required>
                         </div>
@@ -94,7 +95,7 @@
                                 <label for="cvv">CVV</label>
                                 <input type="text" id="cvv" placeholder="123" required>
                             </div>
-                        </div>
+                        </div> -->
 
                         <button type="submit" class="btn-primary full-width">Place Order</button>
                     </form>
@@ -132,6 +133,8 @@
         </ul>
     </div>
 
+    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+    <script type="module" src="payment.js"></script>
     <script src="script.js"></script>
 </body>
 
