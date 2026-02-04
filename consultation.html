@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - CK Cake Lounge</title>
+    <title>Book Consultation | CK Cake Lounge</title>
+    <meta name="description" content="Book a consultation for your wedding or special event cake.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -38,7 +39,6 @@
                 <a href="about.html">About Us</a>
                 <a href="index.html#events">Events</a>
                 <a href="consultation.html" style="color: var(--color-gold); font-weight: bold;">Book Consultation</a>
-
             </div>
             <button class="mobile-menu-btn">
                 <span></span>
@@ -51,67 +51,49 @@
     <section class="section bg-cream" style="padding-top: 120px;">
         <div class="container">
             <div class="section-header text-center">
-                <h2>Checkout</h2>
-                <p>Complete your order</p>
+                <span class="subtitle">Celebrations & Weddings</span>
+                <h2>Book a Cake Consultation</h2>
+                <p>Let's design your dream cake together.</p>
             </div>
 
-            <div class="checkout-container">
-                <div class="checkout-form">
-                    <h3>Billing Details</h3>
-                    <form id="checkout-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" id="address" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="city">City</label>
-                                <input type="text" id="city" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="zip">Zip Code</label>
-                                <input type="text" id="zip" required>
-                            </div>
-                        </div>
-
-                        <h3>Payment Information</h3>
-                        <div class="form-group">
-                            <label for="card">Card Number</label>
-                            <input type="text" id="card" placeholder="0000 0000 0000 0000" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="expiry">Expiry Date</label>
-                                <input type="text" id="expiry" placeholder="MM/YY" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="cvv">CVV</label>
-                                <input type="text" id="cvv" placeholder="123" required>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-primary full-width">Place Order</button>
-                    </form>
-                </div>
-
-                <div class="order-summary">
-                    <h3>Order Summary</h3>
-                    <div id="checkout-items">
-                        <!-- Items will be populated by JS -->
+            <div
+                style="max-width: 600px; margin: 0 auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" required>
                     </div>
-                    <div class="checkout-total">
-                        <span>Total</span>
-                        <span id="checkout-total-amount">$0.00</span>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Event Type</label>
+                        <select id="type">
+                            <option value="wedding">Wedding</option>
+                            <option value="birthday">Milestone Birthday</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Event Date</label>
+                        <input type="date" id="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Approx. Number of Guests</label>
+                        <input type="number" id="guests" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Design Ideas / Flavors / Details</label>
+                        <textarea id="message" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Request Consultation</button>
+                </form>
             </div>
         </div>
     </section>
@@ -136,11 +118,22 @@
             <li><a href="products.html">Our Products</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="index.html#events">Events</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="consultation.html">Book Consultation</a></li>
         </ul>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Simple form handling
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you! Your consultation request has been received. We will contact you shortly.');
+                form.reset();
+            });
+        }
+    </script>
 </body>
 
 </html>

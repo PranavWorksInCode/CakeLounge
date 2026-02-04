@@ -1,4 +1,18 @@
-<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dry Cakes | CK Cake Lounge</title>
+    <meta name="description" content="Delicious dry cakes available for order.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -24,6 +38,7 @@
                 </div>
                 <a href="about.html">About Us</a>
                 <a href="index.html#events">Events</a>
+                <a href="consultation.html" style="color: var(--color-gold); font-weight: bold;">Book Consultation</a>
 
             </div>
             <button class="mobile-menu-btn">
@@ -78,37 +93,30 @@
 
     <section id="contact" class="section bg-dark text-light">
         <div class="container contact-container">
-            <div class="contact-info">
+            <!-- Left Side: Interactive Map -->
+            <div class="map-wrapper"
+                style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2918.665324329245!2d-81.18967922346766!3d42.98522977114144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882ef309fd6c820b%3A0xc6213458428178d!2s1472%20Evans%20Blvd%2C%20London%2C%20ON%20N6M%200A8!5e0!3m2!1sen!2sca!4v1700000000000!5m2!1sen!2sca"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <!-- Right Side: Contact Info -->
+            <div class="contact-info"
+                style="display: flex; flex-direction: column; justify-content: center; padding-left: 2rem;">
                 <h2>Visit Us</h2>
                 <p>1472 Evans Blvd<br>London, ON N6M 0A8</p>
                 <p><strong>Hours:</strong><br>Mon-Sun: 8am - 1am<br></p>
                 <p><strong>Phone:</strong><br>+1 647-864-3713</p>
-            </div>
-            <div class="contact-form-wrapper">
-                <h3>Start Your Order</h3>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="type">I'm interested in...</label>
-                        <select id="type">
-                            <option value="daily">Daily Treats (Pickup)</option>
-                            <option value="wedding">Wedding Cake</option>
-                            <option value="birthday">Birthday/Event Cake</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Date Needed</label>
-                        <input type="date" id="date">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Details</label>
-                        <textarea id="message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary full-width">Send Inquiry</button>
-                </form>
+
+                <div class="social-icons" style="margin-top: 1.5rem;">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="mailto:hello@ckcakelounge.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
     </section>

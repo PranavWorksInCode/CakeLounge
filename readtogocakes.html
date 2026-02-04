@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mousse Cake | CK Cake Lounge</title>
-    <meta name="description"
-        content="Indulge in our light and airy Mousse Cake. A perfect balance of flavor and texture.">
+    <title>Ready to Go Cakes | CK Cake Lounge</title>
+    <meta name="description" content="Delicious cakes ready for pickup. No pre-order needed.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -40,7 +39,6 @@
                 <a href="about.html">About Us</a>
                 <a href="index.html#events">Events</a>
                 <a href="consultation.html" style="color: var(--color-gold); font-weight: bold;">Book Consultation</a>
-
             </div>
             <button class="mobile-menu-btn">
                 <span></span>
@@ -54,41 +52,37 @@
         <div class="container">
             <div class="section-header text-center">
                 <span class="subtitle">Our Menu</span>
-                <h2>Mousse Cake</h2>
-                <p>Light, airy, and irresistibly smooth.</p>
+                <h2>Ready to Go Cakes</h2>
+                <p>Need a cake today? Choose from our daily selection.</p>
             </div>
 
-            <div class="split-layout">
-                <div class="split-image fade-in-left">
-                    <!-- Placeholder Image for Mousse Cake -->
-                    <div
-                        style="width: 100%; height: 500px; background-color: #e0c097; display: flex; align-items: center; justify-content: center; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                        <span style="color: white; font-weight: bold; font-size: 1.5rem;">Mousse Cake Image</span>
+            <div class="product-grid">
+                <!-- Example Ready to Go Item -->
+                <div class="product-card fade-in" data-base-price="35">
+                    <div class="product-image-placeholder" style="background-color: #f0e6d2;"></div>
+                    <div class="product-info">
+                        <h3>Daily Special Vanilla</h3>
+                        <p>Classic 6-inch vanilla cake.</p>
+                        <span class="price-label">$35.00</span>
                     </div>
                 </div>
-                <div class="split-content fade-in-right">
-                    <h3 style="margin-bottom: 1rem; color: var(--color-dark); font-size: 2rem;">Signature Mousse Cake
-                    </h3>
-                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
-                        Experience the ultimate indulgence with our Signature Mousse Cake. Crafted with layers of
-                        delicate sponge and rich, velvety mousse, this dessert is a celebration of texture and flavor.
-                    </p>
 
-                    <h4 style="margin-bottom: 1rem; color: var(--color-dark);">Features:</h4>
-                    <ul class="feature-list" style="margin-bottom: 2rem;">
-                        <li><strong>Airy Texture:</strong> Whipped to perfection for a cloud-like bite.</li>
-                        <li><strong>Premium Ingredients:</strong> Made with high-quality chocolate and fresh cream.</li>
-                        <li><strong>Perfect Balance:</strong> Not too sweet, just the right amount of richness.</li>
-                        <li><strong>Eggless Option:</strong> Available in 100% eggless variety.</li>
-                    </ul>
-
-                    <div class="price-container" style="margin-bottom: 2rem;">
-                        <span style="font-size: 1.5rem; font-weight: bold; color: var(--color-primary);">$35.00</span>
-                        <span style="font-size: 1rem; color: var(--color-text-light);"> / 8 inch cake</span>
+                <div class="product-card fade-in delay-1" data-base-price="40">
+                    <div class="product-image-placeholder" style="background-color: #5D4037;"></div>
+                    <div class="product-info">
+                        <h3>Daily Special Chocolate</h3>
+                        <p>Rich 6-inch chocolate cake.</p>
+                        <span class="price-label">$40.00</span>
                     </div>
+                </div>
 
-                    <button class="btn-primary" onclick="addToCart('Signature Mousse Cake', 35.00, 1)">Add to
-                        Cart</button>
+                <div class="product-card fade-in" data-base-price="45">
+                    <div class="product-image-placeholder" style="background-color: #d64b4b;"></div>
+                    <div class="product-info">
+                        <h3>Red Velvet Delight</h3>
+                        <p>6-inch red velvet with cream cheese.</p>
+                        <span class="price-label">$45.00</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,6 +134,31 @@
             <li><a href="index.html#events">Events</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
+    </div>
+
+    <!-- Product Pop-out Modal -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content-wrapper">
+            <span class="close-modal-btn">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-col">
+                    <div class="modal-image-placeholder"></div>
+                </div>
+                <div class="modal-details-col">
+                    <h3 class="modal-product-title">Product Title</h3>
+                    <label>Select Flavor:</label>
+                    <select class="modal-flavor-select">
+                        <option value="vanilla" data-modifier="0">Vanilla (+$0)</option>
+                        <option value="chocolate" data-modifier="5">Chocolate (+$5)</option>
+                    </select>
+                    <p class="modal-flavor-description">Classic sponge cake.</p>
+                    <div class="price-action-container">
+                        <div class="modal-dynamic-price">$0.00</div>
+                        <button class="btn-primary modal-add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

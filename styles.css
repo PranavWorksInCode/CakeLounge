@@ -341,6 +341,7 @@ img {
 .hero-btns {
     display: flex;
     gap: 1rem;
+    justify-content: center;
 }
 
 .hero-image img {
@@ -461,10 +462,43 @@ img {
 
 /* Footer */
 footer {
-    padding: 2rem 0;
+    padding: 3rem 0;
     background-color: #1a1513;
     color: rgba(255, 255, 255, 0.4);
     font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+    /* Default to center for footer/generics */
+}
+
+/* Specific alignment for contact section if needed, but flex-direction column handles it */
+.contact-info .social-icons {
+    justify-content: flex-start;
+    /* Align left in contact info if it's left-aligned */
+    padding-left: 0;
+    /* consistent with other Text */
+}
+
+/* Be careful, contact-info acts as a flex column. */
+
+.social-icons a {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-white);
+    transform: translateY(-3px);
 }
 
 /* Animations */
